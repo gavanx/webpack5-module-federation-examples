@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import Axios from 'axios'
+import Axios from "axios";
 
 function loadComponent(scope, module) {
   return async () => {
@@ -101,8 +101,8 @@ function query() {
       url: "http://localhost:3003/remoteEntry.js",
       scope: "app3",
       module: "./Other",
-    }
-  ])
+    },
+  ]);
 }
 
 function App() {
@@ -111,19 +111,24 @@ function App() {
   const [buttonDiv, setbuttonDiv] = React.useState(undefined);
 
   useEffect(() => {
-    Axios.get('/menu.json').then(res => {
-      console.log(res);
+    query().then((data) => {
+      console.log(data);
       let buttonDiv;
-      buttonDiv = res.data.map(item => {
+      buttonDiv = data.map((item) => {
         return (
-          <button key={item.module} onClick={()=>{
-            setSystem(item);
-          }}>{item.module}</button>
-        )
-      })
+          <button
+            key={item.module}
+            onClick={() => {
+              setSystem(item);
+            }}
+          >
+            {item.module}
+          </button>
+        );
+      });
       setbuttonDiv(buttonDiv);
-    })
-  }, [])
+    });
+  }, []);
 
   return (
     <div
