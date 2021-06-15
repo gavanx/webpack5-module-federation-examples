@@ -1,6 +1,6 @@
 # webpack5-module-federation-examples
 # Module Federation Examples
-基于[https://github.com/module-federation/module-federation-examples](https://github.com/module-federation/module-federation-examples)示例，跑起来，调整细节
+基于[https://github.com/module-federation/module-federation-examples](https://github.com/module-federation/module-federation-examples)fork后，跑起来，调整细节
 
 
 

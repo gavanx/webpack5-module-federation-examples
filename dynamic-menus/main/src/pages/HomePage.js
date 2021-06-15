@@ -9,10 +9,10 @@ const style = {
 
 const HomePage = () => (
   <div style={style}>
-    <h1>Home Page</h1>
-    <h2>Welcome to the future!</h2>
+    <h1>App1: Home Page</h1>
+    <h2>Welcome to App1!</h2>
     <p>
-      <em>a page being provided by App 1</em>
+      <em>this is a page being provided by App 1</em>
     </p>
   </div>
 );

@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import Loadable from "react-loadable";
-import { useStore } from 'react-redux';
+import { useStore } from "react-redux";
 
 function loadComponent(scope, module) {
   return async () => {
@@ -59,7 +59,6 @@ const useDynamicScript = (args) => {
 };
 
 function System(props) {
-
   const { ready, failed } = useDynamicScript({
     url: props.system && props.system.url,
   });
@@ -105,7 +104,6 @@ function Child(props) {
   } = props;
   const [system, setSystem] = React.useState(undefined);
 
-
   useEffect(() => {
     setSystem(state);
   }, [state]);
@@ -118,6 +116,7 @@ function Child(props) {
       }}
     >
       <div style={{ marginTop: "2em" }}>
+        <h3>{JSON.stringify(system)}</h3>
         <System system={system} />
       </div>
     </div>
