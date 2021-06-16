@@ -1,6 +1,7 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const ModuleFederationPlugin = require("webpack").container
-  .ModuleFederationPlugin;
+const CleanWebpackPlugin = require("clean-webpack-plugin");
+const ModuleFederationPlugin =
+  require("webpack").container.ModuleFederationPlugin;
 const path = require("path");
 const deps = require("./package.json").dependencies;
 module.exports = {
@@ -13,6 +14,7 @@ module.exports = {
   output: {
     publicPath: "auto",
   },
+  devtool: "source-map",
   module: {
     rules: [
       {
@@ -53,5 +55,6 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: "./public/index.html",
     }),
+    // new CleanWebpackPlugin(),
   ],
 };

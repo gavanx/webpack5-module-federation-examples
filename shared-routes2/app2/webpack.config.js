@@ -1,6 +1,7 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const ModuleFederationPlugin = require("webpack").container
-  .ModuleFederationPlugin;
+const CleanWebpackPlugin = require("clean-webpack-plugin");
+const ModuleFederationPlugin =
+  require("webpack").container.ModuleFederationPlugin;
 const path = require("path");
 const deps = require("./package.json").dependencies;
 
@@ -11,6 +12,7 @@ module.exports = {
     contentBase: path.join(__dirname, "dist"),
     port: 3002,
   },
+  devtool: 'source-map',
   output: {
     publicPath: "auto",
   },
@@ -25,6 +27,9 @@ module.exports = {
         },
       },
     ],
+  },
+  optimization: {
+    minimize: false,
   },
   plugins: [
     new ModuleFederationPlugin({
@@ -54,5 +59,6 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: "./public/index.html",
     }),
+    // new CleanWebpackPlugin(),
   ],
 };
